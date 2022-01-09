@@ -1,24 +1,20 @@
-import logo from './logo.svg';
-import './App.css';
+import "./App.css";
+import Search from "./components/search";
+import Grid from "./components/Grid";
+import React, { useState } from "react";
 
 function App() {
+  const [imageList, setImageList] = useState([]);
+  const searchHandler = (images) => {
+    setImageList(images);
+  };
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <React.Fragment>
+      <div className="container">
+        <Search search={searchHandler} />
+      </div>
+      <Grid images={imageList} />
+    </React.Fragment>
   );
 }
 
