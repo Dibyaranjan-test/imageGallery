@@ -7,9 +7,10 @@ function Grid(props) {
       {props.images.map(
         (image) =>
           image && (
-            <div className="grid-item">
+            <div className="imgs" key={props.id}>
               <a href={image}>
                 <img src={image} alt="Not found" />
+                <div className="description">Checking</div>
               </a>
             </div>
           )
